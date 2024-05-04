@@ -68,6 +68,32 @@ export default function App() {
       </View>
     );
   }
+
+
+  const renderNextButton = () => {
+    return (
+      <View style={styles.rightTextWrapper}>
+        <Text style={styles.rightText}>Next</Text>
+      </View>
+    );
+  };
+
+  const renderPrevButton = () => {
+    return (
+      <View style={styles.leftTextWrapper}>
+        <Text style={styles.leftText}>Prev</Text>
+      </View>
+    );
+  }
+
+  const renderDoneButton = () => {
+    return (
+      <View style={styles.doneButtonWrapper}>
+        <Text style={styles.doneButtonText}>Done</Text>
+      </View>
+    );
+  }
+
   
 
   function keyExtractor(item){
@@ -81,18 +107,19 @@ export default function App() {
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       data={data}
+      renderDoneButton={renderDoneButton}
+      renderNextButton={renderNextButton}
+      renderPrevButton={renderPrevButton}
+      showPrevButton
+      dotStyle={styles.dotStyle}
+      activeDotStyle={styles.activeDotStyle}
+      
     />
   </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: colors.white,
-  },
   slide: {
     flex: 1,
     alignItems: 'center',
@@ -124,4 +151,44 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  doneButtonText: {
+    fontSize: 14,
+    marginRight: 20,
+    fontFamily: 'OpenSans_600SemiBold',
+    textAlign: 'center',
+    color: colors.blue,},
+  
+    leftTextWrapper: {
+      width: 40,
+      height: 40,
+      marginLeft: 20,
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center',
+    },
+    leftText: {
+      color: colors.blue,
+      fontFamily: 'OpenSans_600SemiBold',
+      fontSize: 14,
+    },  
+    rightTextWrapper: {
+      width: 40,
+      height: 40,
+      marginRight: 20,
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center',
+    },
+    rightText: {
+      color: colors.blue,
+      fontFamily: 'OpenSans_600SemiBold',
+      fontSize: 14,
+    },  
+    dotStyle: {
+      backgroundColor: colors.blueFaded,
+    },
+    activeDotStyle: {
+      backgroundColor: colors.blue,
+    },
+
 });
