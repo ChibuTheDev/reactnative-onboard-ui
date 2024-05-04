@@ -41,7 +41,7 @@ const data = [
 
 
 
-export default function App() {
+export default function Onboard({handleDone}) {
   let [fontsLoaded] = useFonts({
     OpenSans_300Light,
     OpenSans_400Regular,
@@ -112,6 +112,7 @@ export default function App() {
       showPrevButton
       dotStyle={styles.dotStyle}
       activeDotStyle={styles.activeDotStyle}
+      onDone={handleDone}
       
     />
   </SafeAreaView>
